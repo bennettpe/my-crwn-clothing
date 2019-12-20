@@ -1,4 +1,4 @@
-/* Collection-Preview Components*/
+// Collection-Preview Components
 import React from 'react';
 import CollectionItem from '../collection-item/collection-item.component';
 import './collection-preview.styles.scss';

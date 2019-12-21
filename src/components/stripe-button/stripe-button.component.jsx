@@ -1,10 +1,10 @@
 // Stripe Button Component
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
-require('dotenv').config();
 
 const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;
+    const publishableKey = 'pk_test_d2OZnfBPidFESKxna5XWGXWy00ZWmHBclp';
 
     const onToken = token => {
         console.log(token);
@@ -23,7 +23,7 @@ const StripeCheckoutButton = ({ price }) => {
         amount={priceForStripe}
         panelLabel='Pay Now'
         token={onToken}
-        stripeKey={`${process.env.REACT_APP_PUBLISHABLEKEY}`}
+        stripeKey={publishableKey}
         />
     );
 };

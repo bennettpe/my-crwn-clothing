@@ -2,17 +2,16 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-require('dotenv').config();
 
 let firebaseConfig = {
-  apiKey: `${process.env.REACT_APP_APIKEY}`,
-  authDomain: `${process.env.REACT_APP_AUTHDOMAIN}`,
-  databaseURL: `${process.env.REACT_APP_DATABASEURL}`,
-  projectId: `${process.env.REACT_APP_PROJECTID}`,
-  storageBucket: `${process.env.REACT_APP_STORAGEBUCKET}`,
-  messageingSenderId: `${process.env.REACT_APP_MESSAGINGSENDERID}`,
-  appId: `${process.env.REACT_APP_APPID}`,
-  measurementId: `${process.env.REACT_APP_MEASUREMENTID}`,
+  apiKey: 'AIzaSyCJj-VkBjkA9iG53JrRgxVoWsaFBj3BkDc',
+  authDomain: 'my-crwn-db-7a068.firebaseapp.com',
+  databaseURL: 'https://my-crwn-db-7a068.firebaseio.com',
+  projectId: 'my-crwn-db-7a068',
+  storageBucket: 'my-crwn-db-7a068.appspot.com',
+  messageingSenderId: '325464700114',
+  appId: '1:325464700114:web:15ee08e6444012e52ce90b',
+  measurementId: 'G-RHJ6N8RWFY'
 }; 
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {

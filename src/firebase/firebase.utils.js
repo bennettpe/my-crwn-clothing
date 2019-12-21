@@ -3,18 +3,15 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-// Get Firebase Config 
-const config = require('../config')
-
 let firebaseConfig = {
-  apiKey: config.firebase.apiKey,
-  authDomain: config.firebase.authDomain,
-  databaseURL: config.firebase.databaseURL,
-  projectId: config.firebase.projectId,
-  storageBucket: config.firebase.storageBucket,
-  messageingSenderId: config.firebase.messageingSenderId,
-  appId: config.firebase.appId,
-  measurementId: config.firebase.measurementId
+  apiKey: `${process.env.REACT_APP_APIKEY}`,
+  authDomain: `${process.env.REACT_APP_AUTHDOMAIN}`,
+  databaseURL: `${process.env.REACT_APP_DATABASEURL}`,
+  projectId: `${process.env.REACT_APP_PROJECTID}`,
+  storageBucket: `${process.env.REACT_APP_STORAGEBUCKET}`,
+  messageingSenderId: `${process.env.REACT_APP_MESSAGINGSENDERID}`,
+  appId: `${process.env.REACT_APP_APPID}`,
+  measurementId: `${process.env.REACT_APP_MEASUREMENTID}`,
 }; 
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {

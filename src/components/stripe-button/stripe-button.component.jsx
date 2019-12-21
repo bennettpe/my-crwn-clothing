@@ -2,9 +2,6 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
-// Get Stripe Config 
-const config = require('../../config')
-
 const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;
 
@@ -16,16 +13,16 @@ const StripeCheckoutButton = ({ price }) => {
     return (
         <StripeCheckout 
         label='Pay Now'
-        name={config.stripe.name}
+        name="MY CRWN Clothing Ltd."
         billingAddress
         shippingAddress
-        image={config.stripe.image}
+        image="https://sendeyo.com/up/d/f3eb2117da"
         currency="GBP"
         description={`Your total is £${price}`}
         amount={priceForStripe}
         panelLabel='Pay Now'
         token={onToken}
-        stripeKey={config.stripe.publishableKey}
+        stripeKey={`${process.env.REACT_APP_PUBLISHABLEKEY}`}
         />
     );
 };

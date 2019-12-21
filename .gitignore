@@ -23,7 +23,10 @@ yarn-debug.log*
 yarn-error.log*
 
 test.js
+test*
 async.js
 
 # api keys
 config.js
+.env
+.env*

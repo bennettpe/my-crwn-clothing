@@ -1,6 +1,7 @@
 // Stripe Button Component
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+require('dotenv').config();
 
 const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;

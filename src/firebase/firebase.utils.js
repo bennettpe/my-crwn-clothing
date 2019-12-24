@@ -14,10 +14,14 @@ let firebaseConfig = {
   measurementId: 'G-RHJ6N8RWFY'
 }; 
 
+// Initialize Firebase 
+firebase.initializeApp(firebaseConfig);
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   // Check if userAuth object does not exist
   if (!userAuth) return;
   const userRef = firestore.doc(`user/${userAuth.uid}`);
+
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
@@ -37,8 +41,31 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
-// Initialize Firebase 
-firebase.initializeApp(firebaseConfig);
+//157. Moving Our Shop Data To Firebase 
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  // Group into one request
+  const batch = firestore.batch();
+  objectsToAdd.forEach(obj => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+  return await batch.commit();
+};
+
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map(doc => {
+    const {title, items } = doc.data();
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items
+    }
+  });
+  console.log(transformedCollection);
+}
 
 // make auth and firestore references 
 export const auth = firebase.auth();

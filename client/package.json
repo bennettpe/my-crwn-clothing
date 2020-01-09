@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "axios": "^0.19.1",
     "dotenv": "^8.2.0",
     "firebase": "^7.5.2",
     "node-sass": "^4.13.0",

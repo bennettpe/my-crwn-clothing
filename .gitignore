@@ -30,6 +30,7 @@ test.js
 test*
 async.js
 /client/.vscode
+blaa
 
 # api keys
 config.js
